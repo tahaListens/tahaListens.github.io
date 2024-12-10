@@ -1,1 +1,64 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">TahaListens Link Tree </h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto my-10">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Links -->
+            <div class="text-center p-6 bg-white rounded shadow">
+                <a href="https://www.youtube.com/@tahaListens" class="text-blue-600 font-semibold text-xl">Youtube</a>
+            </div>
+            <div class="text-center p-6 bg-white rounded shadow">
+                <a href="https://www.twitch.tv/tahalistens" class="text-blue-600 font-semibold text-xl">Twitch</a>
+            </div>
+            <div class="text-center p-6 bg-white rounded shadow">
+                <a href="https://www.instagram.com/tahalistens" class="text-blue-600 font-semibold text-xl">Instagram</a>
+            </div>
+            <div class="text-center p-6 bg-white rounded shadow">
+                <a href="https://discord.gg/kuym92hC6P" class="text-blue-600 font-semibold text-xl">Learning to Listen Discord</a>
+            </div>
+            <div class="text-center p-6 bg-white rounded shadow">
+                <a href="https://www.tiktok.com/@tahalistens" class="text-blue-600 font-semibold text-xl">Tik Tok</a>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="text-center mt-12">
+            <p class="text-lg mb-4">Support us with a donation!</p>
+            <a href="https://paypal.me/tahaListens?country.x=US&locale.x=en_US" target="_blank" class="bg-green-500 text-white py-2 px-4 rounded shadow hover:bg-green-600">Donate</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">&copy; 2024 TahaListens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Smooth Scrolling Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
