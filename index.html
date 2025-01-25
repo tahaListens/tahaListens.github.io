@@ -3,66 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-b from-gray-100 to-gray-200 font-sans">
-    <!-- Header -->
-    <header class="bg-blue-600 shadow-lg text-white py-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-6">
-            <a href="#" class="text-2xl font-bold hover:text-gray-300">TahaListens</a>
-            <div class="relative">
-                <button class="bg-blue-700 text-white py-2 px-6 rounded-md hover:bg-blue-800 focus:ring-4 focus:ring-blue-500 focus:outline-none" onclick="toggleDropdown()">Links</button>
-                <ul id="dropdownMenu" class="absolute right-0 mt-2 bg-white text-blue-600 rounded shadow-lg hidden">
-                    <li><a href="https://www.youtube.com/@tahaListens" class="block px-4 py-2 hover:bg-gray-100">YouTube</a></li>
-                    <li><a href="https://www.twitch.tv/tahalistens" class="block px-4 py-2 hover:bg-gray-100">Twitch</a></li>
-                    <li><a href="https://www.instagram.com/tahalistens" class="block px-4 py-2 hover:bg-gray-100">Instagram</a></li>
-                    <li><a href="https://discord.gg/kuym92hC6P" class="block px-4 py-2 hover:bg-gray-100">Discord</a></li>
-                    <li><a href="https://www.tiktok.com/@tahalistens" class="block px-4 py-2 hover:bg-gray-100">TikTok</a></li>
-                    <li><a href="https://paypal.me/tahaListens?country.x=US&locale.x=en_US" class="block px-4 py-2 hover:bg-gray-100">Donate</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
-        <div class="container mx-auto text-center px-6">
-            <h1 class="text-4xl font-extrabold mb-4">Welcome to TahaListens</h1>
-            <p class="text-lg mb-8">Listening to find the language to remind myself to stop talking.</p>
-            <a href="#about" class="bg-white text-blue-600 py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100">Learn More</a>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main id="about" class="container mx-auto my-10 px-6">
-        <section>
-            <h2 class="text-3xl font-bold text-center mb-6">About TahaListens</h2>
-            <p class="text-lg text-center mb-6">Join a vibrant community across multiple platforms. Engage, share, and grow together!</p>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto text-center px-6">
-            <p class="text-sm">&copy; 2024 TahaListens. All rights reserved.</p>
-            <div class="flex justify-center mt-4 space-x-4">
-                <a href="https://www.youtube.com/@tahaListens" class="hover:text-blue-400">YouTube</a>
-                <a href="https://www.twitch.tv/tahalistens" class="hover:text-purple-400">Twitch</a>
-                <a href="https://www.instagram.com/tahalistens" class="hover:text-pink-400">Instagram</a>
-                <a href="https://discord.gg/kuym92hC6P" class="hover:text-blue-300">Discord</a>
-                <a href="https://www.tiktok.com/@tahalistens" class="hover:text-gray-300">TikTok</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Smooth Scrolling Script -->
-    <script>
-        function toggleDropdown() {
-            const dropdown = document.getElementById('dropdownMenu');
-            dropdown.classList.toggle('hidden');
+    <title>My Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
+        .hero {
+            position: relative;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .hero img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            animation: fade 10s infinite;
+        }
+        @keyframes fade {
+            0% { opacity: 1; }
+            33% { opacity: 0; }
+            66% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .buttons a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="image1.jpg" alt="Hero Image 1">
+        <img src="image2.jpg" alt="Hero Image 2">
+        <img src="image3.jpg" alt="Hero Image 3">
+    </div>
+
+    <div class="buttons">
+        <a href="https://jazzbuildsthe919.wordpress.com" target="_blank">My Blog</a>
+        <a href="#">Button 1</a>
+        <a href="#">Button 2</a>
+        <a href="#">Button 3</a>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.hero img');
+        let currentIndex = 0;
+
+        setInterval(() => {
+            images[currentIndex].style.opacity = 0;
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].style.opacity = 1;
+        }, 3000);
     </script>
 </body>
 </html>
-        
