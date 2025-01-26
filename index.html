@@ -5,75 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tahaLinks</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="src\css\global.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="src/css/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syne"/>
 </head>
 
-<body class="w3-white">
-    <!-- Content Cnntainer -->
+<body class="bg-white">
     <!-- Header -->
-    <header class="w3-bar w3-black shadow-lg text-white py-4 sticky top-0 z-50">
+    <header class="bg-black bg-opacity-80 text-white shadow-lg py-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-6">
-             <a href="#" class="w3-bar-item text-2xl font-bold hover:text-gray-300">TahaListens</a>
+             <a href="#" class="text-2xl font-bold hover:text-gray-300">TahaListens</a>
         </div>
     </header>
 
-    <div class="container">
-        <!-- Image and name container. Change to your picture here. -->
-        <div class="image-container">
+    <div class="container mx-auto px-6">
+        <!-- Image and name container -->
+        <div class="text-center my-6">
             <img
-            src="public\assets\images\headshot.jpg"
-            class="w3-margin"
+            src="public/assets/images/headshot.jpg"
             alt="Person"
-            style="border-radius: 50%; max-width: 150px; height: auto;"
+            class="rounded-full mx-auto w-36 h-auto"
             />
-            <p class="w3-large w3-text-white"><strong> Let's Link! </strong></p>
-           <!-- <p class="w3-large w3-text-white"> Scroll down to read Resume. </p>    -->
-        </div>
-          <!-- Content. Add bio. -->
-          
-  
-          <!-- Links section 1. Replace the # inside of the "" with your links. -->
-          <div class="links-container">
-                <a 
-                href="public\assets\files\taha_Resume_2025.pdf" 
-                class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-green link" 
-                download="Taha_Resume_2025.pdf"
-                >
-                Download Resume
-                </a>
-                <a href="https://jazzbuildsthe919.wordpress.com" class= "w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">My Blog</a>
-                <a href="https://github.com/tahaListens" class= "w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Github</a>
-                <a href="https://www.youtube.com/@tahaListens" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">YouTube</a>
-                <a href="https://www.twitch.tv/tahalistens" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Twitch</a>
-                <a href="https://www.instagram.com/tahalistens" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Instagram</a>
-                <a href="https://discord.gg/kuym92hC6P" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">Discord</a>
-                <a href="https://www.tiktok.com/@tahalistens" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank">TikTok</a>
-                <a href="https://paypal.me/tahaListens?country.x=US&locale.x=en_US" class="w3-button w3-hover-pink w3-large w3-round-xlarge w3-yellow link" target="_blank" >Donate</a>
-  
-          </div>
+            <p class="text-lg text-black font-semibold mt-4">Let's Link!</p>
         </div>
 
-        <!-- Resume container. Add your resume here.   -->
-        <div class="resume-container w3-margin-top">
+        <!-- Links section -->
+        <div class="flex flex-col items-center space-y-4">
+            <a 
+                href="public/assets/files/taha_Resume_2025.pdf" 
+                class="block bg-green-500 hover:bg-green-600 text-white text-lg py-2 px-4 rounded-lg text-center" 
+                download="Taha_Resume_2025.pdf"
+            >
+                Download Resume
+            </a>
+            <div class='linktree'>
+            <a href="https://jazzbuildsthe919.wordpress.com" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/wordpress-simple.svg" alt="Wordpress Icon" class="w-6 h-6" /><span>My Blog</span></a>s
+            <a href="https://github.com/tahaListens" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/github.svg" alt="GitHub Icon" class="w-6 h-6" /><span>Github</span></a>
+            <a href="https://www.youtube.com/@tahaListens" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/youtube.svg" alt="Youtube Icon" class="w-6 h-6" /><span>Youtube</span></a>
+            <a href="https://www.twitch.tv/tahalistens" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/twitch.svg" alt="Twitch Icon" class="w-6 h-6" /><span>Twitch</span></a>
+            <a href="https://www.instagram.com/tahalistens" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/instagram.svg" alt="instagram Icon" class="w-6 h-6" /><span>Instagram</span></a>
+            <a href="https://discord.gg/kuym92hC6P" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/discord.svg" alt="discord Icon" class="w-6 h-6" /><span>Discord</span></a>
+            <a href="https://www.tiktok.com/@tahalistens" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/tiktok.svg" alt="tiktok Icon" class="w-6 h-6" /><span>TikTok</span></a>
+            <a href="https://paypal.me/tahaListens?country.x=US&locale.x=en_US" class="block bg-yellow-500 hover:bg-yellow-600 text-lg py-2 px-4 rounded-lg text-center flex items-center justify-center space-x-2" target="_blank">
+                <img src="public/assets/icons/dollar-sign.svg" alt="donate Icon" class="w-6 h-6" /><span>Donate</span></a>
+
+            </div>
+        </div>
+
+        <!-- Resume container -->
+        <div class="my-6">
             <iframe 
-                src="public\assets\files\taha_Resume_2025.pdf" 
-                width="100%" 
-                height="500px" 
-                style="border: none;"
+                src="public/assets/files/taha_Resume_2025.pdf" 
+                class="w-full h-[800px] border-none"
             ></iframe>
         </div>
-        
-<!-- Footer -->
-<footer class="bg-gray-800 text-white py-4">
-    <div class="container mx-auto text-center">
-<footer class="bg-gray-800 text-white py-6">
-    <div class="container mx-auto text-center px-6">
-        <p class="text-sm">&copy; 2024 TahaListens. All rights reserved.</p>
     </div>
-</footer>   
-    
 
+    <!-- Footer -->
+    <footer class="bg-gray-800 bg-opacity-80 text-white py-6">
+        <div class="container mx-auto text-center px-6">
+            <p class="text-sm">&copy; 2024 TahaListens. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
