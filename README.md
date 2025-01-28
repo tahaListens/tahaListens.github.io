@@ -1,13 +1,8 @@
-# tahaListens.github.io
-Personal page 
-Hey yall, I am learning how to build a robust landing page as a Single Page App. 
+# React + Vite
 
-I like Linktree, but wanted to set something up where I could customize it, need be. 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Bars for days, call me a barbarian
-Coding for equality, call me an egalitarian. 
+Currently, two official plugins are available:
 
-
-12/10/24 I set this page up.
-1/25/25 I made it look more like a linktree. 
-
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
