@@ -1,4 +1,3 @@
-import './App.css'
 import Navbar from './components/Navbar'
 import Headshot from './components/Headshot'
 import Links from './components/Links'
@@ -6,7 +5,7 @@ import Links from './components/Links'
 function App() {
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen space-y-12 " >
       <Navbar />
       <Headshot />
       <Links />
@@ -16,3 +15,5 @@ function App() {
 }
 
 export default App
+
+

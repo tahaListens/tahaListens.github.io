@@ -12,25 +12,23 @@ function Links() {
         { name: "Discord", url: "https://discord.gg/kuym92hC6P", icon: <FaDiscord /> },
         { name: "TikTok", url: "https://www.tiktok.com/@tahalistens", icon: < FaTiktok /> },
         { name: "Donate", url: "https://paypal.me/tahaListens?country.x=US&locale.x=en_US", icon: <FaDollarSign /> }
-
-
     ];
 
     return (
-        <div className="mt-8 flex flex-col items-center">
-            <a href=""></a>
 
+        <div className="mt-8 flex flex-col items-center">
             {links.map((link, index) => (
                 <a
-                    key={index}
-                    href={link.url}
-
-                    className="mb-3 w-56 py-2 px-4 flex items-center justify-center gap-2 
-                        bg-white text-blue-500 rounded-md shadow-sm hover:shadow-md 
-                        border border-gray-200 transition-all"                >
-                    {link.icon}
-                    {link.name}
-                </a>
+                key={index}
+                href={link.url}
+                className= "mb-4 flex w-56 items-center justify-center gap-3 rounded-lg 
+                border bg-surface-btn-link px-6 py-3 shadow-md transition-all duration-300 
+                sm:w-64 md:w-72"
+            >
+                {link.icon}
+                {link.name}
+            </a>
+            
             ))}
         </div>
     );

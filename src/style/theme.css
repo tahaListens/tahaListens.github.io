@@ -1,0 +1,32 @@
+@theme{
+
+    /* --swatch-1: oklch(96% 0.06 90);
+    --swatch-2: oklch(90% 0.12 90);
+    --swatch-3: oklch(90% 0.15 90);
+    --swatch-4: oklch(87% 0.2 90);
+    --swatch-5: oklch(82% 0.19 90);
+    --swatch-6: oklch(76% 0.17 90);
+    --swatch-7: oklch(64% 0.15 90);
+    --swatch-8: oklch(38% 0.01 90);
+    --swatch-9: oklch(30% 0.06 90);
+    --swatch-10: oklch(22% 0.04 90);
+    
+    --text-1: var(--swatch-1);
+    --text-2: var(--swatch-2);
+    --link: var(--swatch-3);
+    --surface-1: var(--swatch-10);
+    --surface-2: var(--swatch-9);
+    --surface-3: var(--swatch-8);
+     */
+    --color-fire-50: oklch(96% 0.06 90);
+    --color-fire-100: oklch(90% 0.12 90);
+    --color-fire-200: oklch(90% 0.15 90);
+    --color-fire-300: oklch(87% 0.2 90);
+    --color-fire-400: oklch(82% 0.19 90);
+    --color-fire-500: oklch(76% 0.17 90);
+    --color-fire-600: oklch(64% 0.15 90);
+    --color-fire-700: oklch(38% 0.01 90);
+    --color-fire-800: oklch(30% 0.06 90);
+    --color-fire-900: oklch(22% 0.04 90);
+}
+

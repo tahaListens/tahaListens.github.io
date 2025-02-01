@@ -1,11 +1,43 @@
 @import "tailwindcss";
 
-body {
-  @apply bg-gradient-to-b from-rose-200 to-blue-600 min-h-screen;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
+@theme{
+
+    /* Fire Color Palette */
+    --color-*: initial;
+    --color-fire-50: oklch(96% 0.06 90);
+    --color-fire-100: oklch(90% 0.12 90);
+    --color-fire-200: oklch(90% 0.15 90);
+    --color-fire-300: oklch(87% 0.2 90);
+    --color-fire-400: oklch(82% 0.19 90);
+    --color-fire-500: oklch(76% 0.17 90);
+    --color-fire-600: oklch(64% 0.15 90);
+    --color-fire-700: oklch(38% 0.01 90);
+    --color-fire-800: oklch(30% 0.06 90);
+    --color-fire-900: oklch(22% 0.04 90);
+    
+    --color-text-1: var(--color-fire-900);
+    --color-text-2: var(--color-fire-800);
+    --color-link: var(--color-blue-500);
+    --color-surface-bg: var(--color-fire-200);
+    --color-surface-nav: var(--color-fire-300);
+    --color-surface-3: var(--color-fire-400);
+    --color-surface-btn-link: var(--color-fire-400);
+   
 }
 
-:root {
-  @apply max-w-screen-lg mx-auto p-8 text-center;
+
+[data-theme="dark"] {
+
+    --color-text-1: var(--color-stone-900);
+    --color-text-2: var(--color-stone-800);
+    --color-link: var(--color-stone-500);
+    --color-surface-bg: var(--color-stone-200);
+    --color-surface-nav: var(--color-stone-300);
+    --color-surface-3: var(--color-stone-400);
+    --color-surface-btn-link: var(--color-stone-400);
+  }
+
+:root{
+    background-color: var(--color-surface-bg);
+    
 }
