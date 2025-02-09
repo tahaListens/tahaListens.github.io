@@ -31,6 +31,7 @@ html.dark {
   --color-surface-nav: var(--color-stone-900);
   --color-surface-3: var(--color-stone-400);
   --color-surface-btn-link: var(--color-stone-400);
+  --color-surface-shadow: var(--color-stone-900);
 }
 
 /* Apply the variables */
