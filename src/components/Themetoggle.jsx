@@ -1,48 +1,72 @@
 import React, { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
-  // State to track the current theme (light, dark, or system)
-  const [theme, setTheme] = useState(localStorage.theme || "system");
+ 
+  // State to track the current theme (light, dark, green, or system)
+const [theme, setTheme] = useState(localStorage.theme || "system");
+// const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
 
-  // Function to set the theme
-  const setThemeMode = (selectedTheme) => {
-    if (selectedTheme === "system") {
-      // If the user selects "system," respect the system preference
-      const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.classList.toggle("dark", isSystemDark); // Toggle dark class based on system preference
-      localStorage.removeItem("theme"); // Clear the user's saved preference
-    } else {
-      // If the user selects "light" or "dark," set the theme accordingly
-      document.documentElement.classList.toggle("dark", selectedTheme === "dark"); // Toggle dark class
-      localStorage.theme = selectedTheme; // Save the user's preference in localStorage
+//svg icons
+
+// const systemIcon = () => {
+//   <svg viewBox="0 0 28 28" fill="none">
+//           <path
+//             d="M7.5 8.5C7.5 7.94772 7.94772 7.5 8.5 7.5H19.5C20.0523 7.5 20.5 7.94772 20.5 8.5V16.5C20.5 17.0523 20.0523 17.5 19.5 17.5H8.5C7.94772 17.5 7.5 17.0523 7.5 16.5V8.5Z"
+//             stroke="currentColor"
+//           />
+//           <path
+//             d="M7.5 8.5C7.5 7.94772 7.94772 7.5 8.5 7.5H19.5C20.0523 7.5 20.5 7.94772 20.5 8.5V14.5C20.5 15.0523 20.0523 15.5 19.5 15.5H8.5C7.94772 15.5 7.5 15.0523 7.5 14.5V8.5Z"
+//             stroke="currentColor"
+//           />
+//           <path
+//             d="M16.5 20.5V17.5H11.5V20.5M16.5 20.5H11.5M16.5 20.5H17.5M11.5 20.5H10.5"
+//             stroke="currentColor"
+//             strokeLinecap="round"
+//           />
+//         </svg> }
+
+
+// Function to set the theme
+const setThemeMode = (selectedTheme) => {
+  if (selectedTheme === "system") {
+    // If the user selects "system," respect the system preference
+    const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.classList.toggle("dark", isSystemDark); // Toggle dark class based on system preference
+    document.documentElement.classList.toggle("green", false); // Ensure green is not applied
+    localStorage.removeItem("theme"); // Clear the user's saved preference
+  } else {
+    // If the user selects "light," "dark," or "green," set the theme accordingly
+    document.documentElement.classList.toggle("dark", selectedTheme === "dark"); // Toggle dark class
+    document.documentElement.classList.toggle("green", selectedTheme === "green"); // Toggle green class
+    localStorage.theme = selectedTheme; // Save the user's preference in localStorage
+  }
+  setTheme(selectedTheme); // Update the state with the selected theme
+};
+
+// On component mount, set the initial theme
+useEffect(() => {
+  const savedTheme = localStorage.theme; // Check if the user has a saved theme preference
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; // Detect system theme
+  const initialTheme = savedTheme || "system"; // Use saved theme if available, otherwise default to "system"
+  setThemeMode(initialTheme); // Set the initial theme
+}, []); // Empty dependency array ensures this runs only once on mount
+
+// Listen for system theme changes
+useEffect(() => {
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)"); // Create a media query to detect system theme changes
+  const handleSystemThemeChange = (e) => {
+    if (theme === "system") {
+      // If the user is using the system theme, update the theme when the system preference changes
+      setThemeMode("system");
     }
-    setTheme(selectedTheme); // Update the state with the selected theme
   };
-
-  // On component mount, set the initial theme
-  useEffect(() => {
-    const savedTheme = localStorage.theme; // Check if the user has a saved theme preference
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; // Detect system theme
-    const initialTheme = savedTheme || "system"; // Use saved theme if available, otherwise default to "system"
-    setThemeMode(initialTheme); // Set the initial theme
-  }, []); // Empty dependency array ensures this runs only once on mount
-
-  // Listen for system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)"); // Create a media query to detect system theme changes
-    const handleSystemThemeChange = (e) => {
-      if (theme === "system") {
-        // If the user is using the system theme, update the theme when the system preference changes
-        setThemeMode("system");
-      }
-    };
-    mediaQuery.addEventListener("change", handleSystemThemeChange); // Add event listener for system theme changes
-    return () => mediaQuery.removeEventListener("change", handleSystemThemeChange); // Cleanup event listener on unmount
-  }, [theme]); // Re-run this effect when the `theme` state changes
+  mediaQuery.addEventListener("change", handleSystemThemeChange); // Add event listener for system theme changes
+  return () => mediaQuery.removeEventListener("change", handleSystemThemeChange); // Cleanup event listener on unmount
+}, [theme]); // Re-run this effect when the `theme` state changes
 
   return (
     <div
-      className="relative z-0 inline-grid grid-cols-3 gap-0.5 rounded-full bg-gray-950/5 p-0.75 text-gray-950 dark:bg-white/10 dark:text-white"
+      className="relative z-0 inline-grid grid-cols-4 gap-0.5 rounded-full bg-gray-950/5 p-0.75 text-gray-95"
       role="radiogroup"
     >
         
@@ -150,6 +174,37 @@ const ThemeToggle = () => {
           />
         </svg>
       </button>
+
+      {/* Green Mode Button */}
+      <button
+        className={`rounded-full p-1.5 *:size-7 ${
+          theme === "green"
+            ? "bg-gray-700 inset-ring ring ring-transparent inset-ring-white/10"
+            : ""
+        }`}
+        aria-label="Green theme"
+        role="radio"
+        aria-checked={theme === "green"}
+        onClick={() => setThemeMode("green")}
+      >
+        
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path 
+    d="M13 21V26" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"/>
+  <path 
+    d="M9 14C9 10 12 7 14 7C16 7 19 10 19 14C19 16 17 17.5 16 18C15.5 18.5 14.5 19 14 19C13.5 19 12.5 18.5 12 18C11 17.5 9 16 9 14Z" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"/>
+</svg>
+      </button>
+
+
     </div>
   );
 };

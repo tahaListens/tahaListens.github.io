@@ -8,10 +8,19 @@ const Navbar = () => {
       <h1 className="text-xl font-bold text-center text-text-1">tahaListens</h1>
       <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
         <ThemeToggle />
+        {/* // need to add drop down menu for theme toggle */}
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+
+// TO Do: Add an about me section
+// TO Do: Add a contact me section  
+// 
+
+
+
+
 

@@ -28,10 +28,21 @@ html.dark {
   --color-text-2: var(--color-stone-800);
   --color-link: var(--color-blue-500);
   --color-surface-bg: var(--color-stone-200);
-  --color-surface-nav: var(--color-stone-900);
+  --color-surface-nav: var(--color-stone-700);
   --color-surface-3: var(--color-stone-400);
   --color-surface-btn-link: var(--color-stone-400);
   --color-surface-shadow: var(--color-stone-900);
+}
+
+html.green {
+  /* Green theme */
+  --color-text-1: var(--color-green-900);
+  --color-text-2: var(--color-green-800);
+  --color-link: var(--color-blue-500);
+  --color-surface-bg: var(--color-green-200);
+  --color-surface-nav: var(--color-green-300);
+  --color-surface-3: var(--color-green-400);
+  --color-surface-btn-link: var(--color-green-400);
 }
 
 /* Apply the variables */
