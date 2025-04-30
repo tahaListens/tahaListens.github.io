@@ -5,7 +5,7 @@ function Headshot() {
             <img
                 src="/assets/images/headshot.jpg"
                 alt="My Headshot"
-                className="w-32 h-auto rounded-full border-4 border-blue-500 shadow-lg"
+                className="w-32 h-auto rounded-full border-4  border-surface-btn-link shadow-lg"
             />
         </div>
     );
