@@ -1,10 +1,9 @@
-import Navbar from './components/Navbar'
-import Headshot from './components/Headshot'
-import Links from './components/Links'
-import Background from './components/ParticlesBackground'
+import Navbar from "./components/Navbar";
+import Headshot from "./components/Headshot";
+import Links from "./components/Links";
+import Background from "./components/StarsBackground";
 
 function App() {
-
   return (
     <div className="min-h-screen relative">
       <Background />
@@ -15,9 +14,6 @@ function App() {
       </div>
     </div>
   );
-
 }
 
-export default App
-
-
+export default App;
