@@ -1,4 +1,4 @@
-interface NavItem {
+interface NavItemProps {
    href: string;
     text: string;
  }
