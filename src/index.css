@@ -1,52 +1,53 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@theme {
-
-  --color-fire-50: oklch(96% 0.06 90);
-  --color-fire-100: oklch(90% 0.12 90);
-  --color-fire-200: oklch(90% 0.15 90);
-  --color-fire-300: oklch(87% 0.2 90);
-  --color-fire-400: oklch(82% 0.19 90);
-  --color-fire-500: oklch(76% 0.17 90);
-  --color-fire-600: oklch(64% 0.15 90);
-  --color-fire-700: oklch(38% 0.01 90);
-  --color-fire-800: oklch(30% 0.06 90);
-  --color-fire-900: oklch(22% 0.04 90);
-  
-  --color-text-1: var(--color-fire-900);
-  --color-text-2: var(--color-fire-800);
-  --color-link: var(--color-blue-500);
-  --color-surface-bg: var(--color-fire-200);
-  --color-surface-nav: var(--color-fire-300);
-  --color-surface-3: var(--color-fire-400);
-  --color-surface-btn-link: var(--color-fire-400);
+@theme{
+  --color-bg:255 255 255;
+  --color-box: 255 255 255;
+  --box-border: 229 231 235;
+  --box-sd: 226 232 240/ *0.5;
+  --heading-1:23 37 84;
+  --heading-2:31 41 55;
+  --heading-3:55 65 81;
 }
 
 html.dark {
-  /* Dark theme */
-  --color-text-1: var(--color-stone-100);
-  --color-text-2: var(--color-stone-800);
-  --color-link: var(--color-blue-500);
-  --color-surface-bg: var(--color-stone-200);
-  --color-surface-nav: var(--color-stone-700);
-  --color-surface-3: var(--color-stone-400);
-  --color-surface-btn-link: var(--color-stone-400);
-  --color-surface-shadow: var(--color-stone-900);
+  --color-bg:3 7 18;
+  --color-box: 17 24 39;
+  --box-border: 243 244 246/ *0.1;
+  --box-sd: transparent;
+  --heading-1:255 255 255 ;
+  --heading-2:243 244 246;
+  --heading-3:289 213 219;
+  
+
+} 
+
+@layer utilities {
+  .bg-body{
+    background-color: rgb(var(--color-bg));
+  }
+  .bg-box{
+    background-color: rgb(var(--color-box));
+  }
+
+  .text-heading-1{
+    color: rgb(var(--heading-1)); 
+  }
+
+  .text-heading-2{
+    color: rgb(var(--heading-1)); 
+  }
+
+  .text-heading-3{
+    color: rgb(var(--heading-1)); 
+  }
+
 }
 
-html.green {
-  /* Green theme */
-  --color-text-1: var(--color-green-900);
-  --color-text-2: var(--color-green-800);
-  --color-link: var(--color-blue-500);
-  --color-surface-bg: var(--color-green-200);
-  --color-surface-nav: var(--color-green-300);
-  --color-surface-3: var(--color-green-400);
-  --color-surface-btn-link: var(--color-green-400);
+html {
+  scroll-behavior: smooth;
 }
 
-/* Apply the variables */
-body {
-  background-color: var(--color-surface-bg);
-  color: var(--color-text);
+body { 
+  font-family: "Raleway", sans-serif;
 }
