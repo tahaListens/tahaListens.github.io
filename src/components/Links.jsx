@@ -51,7 +51,7 @@ function Links() {
     },
     {
       name: "Discord",
-      url: "https://discord.gg/kuym92hC6P",
+      url: "https://discord.gg/Bm8M53cKjn",
       icon: <FaDiscord />,
     },
     {
