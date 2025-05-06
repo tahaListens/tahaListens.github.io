@@ -1,5 +1,5 @@
 import { Layout } from "./components/Layout";
-import { Hero } from "./components/sections/hero";
+import { Hero } from "./components/sections/Hero";
 
 // App is the main component of the application
 // It is responsible for rendering the layout and the main content of the application

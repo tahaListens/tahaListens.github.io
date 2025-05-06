@@ -15,16 +15,14 @@ export const Layout = ({title, children}: LayoutProps) => {
         document.title = title;
     }, [title]);
 
-    return <>
+    return <> 
         <Navbar />
 
-        <main className="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden" >   
+        <main className="flex flex-col bg-bg-body gap-y-20 md:gap-y-32 overflow-hidden" >   
         {children}
          </main>
          
-        <Footer />
+        <Footer /> 
     </>
-    
-
     
 };

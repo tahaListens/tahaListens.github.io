@@ -11,24 +11,22 @@
 }
 
 html.dark {
-  --color-bg:3 7 18;
+  --color-bg: 3 7 18;
   --color-box: 17 24 39;
   --box-border: 243 244 246/ *0.1;
   --box-sd: transparent;
-  --heading-1:255 255 255 ;
+  --heading-1:169 169 169 ;
   --heading-2:243 244 246;
   --heading-3:289 213 219;
-  
-
 } 
 
 @layer utilities {
   .bg-body{
     background-color: rgb(var(--color-bg));
   }
-  .bg-box{
+  .bg-box-bg{
     background-color: rgb(var(--color-box));
-  }
+  } 
 
   .text-heading-1{
     color: rgb(var(--heading-1)); 
