@@ -1,28 +1,40 @@
 export const pricingPlans = [
   {
-    title: "Link Tree",
-    price: "$20",
-    Features: ["SPA for your business", "Unlimited Links", "Contact form"],
-  },
-  {
-    title: "Landing Page",
-    price: "$50",
-    Features: [
-      "Fullstack solution",
-      "Manage Customers/mailing list",
-      "Blog to interact with your community",
+    title: "Smart Link Hub",
+    price: "$30",
+    features: [
+      "Single-page site for your brand or bio",
+      "Unlimited custom links",
+      "Built-in contact form",
     ],
   },
   {
-    title: "Web Store",
-    price: "$100",
-    Features: ["SEO optimized", "Unlimited Links", "Blog"],
+    title: "Starter Landing Site",
+    price: "$75",
+    features: [
+      "Responsive full-stack landing page",
+      "Email list integration & lead capture",
+      "Optional blog/news section",
+    ],
+  },
+  {
+    title: "Business Web Store",
+    price: "$150",
+    features: [
+      "E-commerce-ready with admin dashboard",
+      "SEO-optimized and mobile-friendly",
+      "Unlimited product & link support",
+    ],
     bestValue: true,
   },
 
   {
-    title: "WordPress",
-    price: "$150",
-    Features: ["SPA for you business", "Unlimited Links", "Responsive"],
+    title: "Custom SaaS Platform",
+    price: "Starting at $1000",
+    features: [
+      "Robust, scalable backend tailored to your business",
+      "Scalable backend & user auth",
+      "Fully responsive & business-ready",
+    ],
   },
 ];

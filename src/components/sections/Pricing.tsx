@@ -38,7 +38,7 @@ export const Pricing = () => {
                     {plan.price}
                   </p>
                   <ul className="mt-6 flex-1 space-y-3 text-left text-heading-3">
-                    {plan.Features.map((features, keyFeatures) => (
+                    {plan.features.map((features, keyFeatures) => (
                       <li key={keyFeatures} className="flex items-center gap-2">
                         <span>{features} </span>
                       </li>

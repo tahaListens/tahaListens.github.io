@@ -4,13 +4,14 @@ import { NavItem } from "../shared/NavItem.tsx";
 import { BtnLink } from "../shared/BtnLink.tsx";
 import { useThemeStore } from "../../store/ThemeStore.ts";
 
-const navItems = [
+export const navItems = [
   // '#' allows to scroll to a section since it is an SPA
   { href: "#", text: "Home" },
   { href: "#services", text: "Services" },
   { href: "#AboutUs", text: "About Us" },
   { href: "#Features", text: "Features" },
-  { href: "#pricing", text: "pricing" },
+  { href: "#pricing", text: "Pricing" },
+  { href: "#cta", text: "Contact" },
 ];
 
 export const Navbar = () => {
