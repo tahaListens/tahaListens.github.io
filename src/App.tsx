@@ -1,14 +1,20 @@
 import { Layout } from "./components/Layout";
 import { Hero } from "./components/sections/Hero";
+import { Brands } from "./components/sections/Brands";
+import { Services } from "./components/sections/Services";
+import { AboutUs } from "./components/sections/AboutUs";
+import { Pricing } from "./components/sections/Pricing";
 
-// App is the main component of the application
-// It is responsible for rendering the layout and the main content of the application
-// It uses the Layout component to provide a consistent layout for the application
 function App() {
-  return <Layout title= "tahaListens">
-    <Hero />
-  </Layout>;
-  
+  return (
+    <Layout title="tahaListens">
+      <Hero />
+      <Brands />
+      <Services />
+      <AboutUs />
+      <Pricing />
+    </Layout>
+  );
 }
 
 export default App;
