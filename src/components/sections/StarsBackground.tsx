@@ -1,10 +1,14 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-const StarsBackground = () => {
-  const mountRef = useRef(null);
+export const StarsBackground = () => {
+  // Be explicit about the type
+  const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Early return if ref is not attached
+    if (!mountRef.current) return;
+
     // === Set up scene ===
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -82,12 +86,13 @@ const StarsBackground = () => {
     // === Cleanup ===
     return () => {
       window.removeEventListener("resize", handleResize);
-      mountRef.current.removeChild(renderer.domElement);
+      // Add null check here too
+      if (mountRef.current) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
       renderer.dispose();
     };
   }, []);
 
   return <div ref={mountRef} className="fixed inset-0 -z-10" />;
 };
-
-export default StarsBackground;
