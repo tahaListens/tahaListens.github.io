@@ -1,5 +1,5 @@
 import { Container } from "../shared/Container";
-//import logo from "../../assets/icons/icon.svg";
+import logo from "/assets/icon.svg";
 import { NavItem } from "../shared/NavItem";
 import { BtnLink } from "../shared/BtnLink";
 import { useThemeStore } from "../../store/ThemeStore";
@@ -8,7 +8,6 @@ export const navItems = [
   { href: "#", text: "Home" },
   { href: "#services", text: "Services" },
   { href: "#about-me", text: "About" },
-  { href: "#pricing", text: "Pricing" },
 ];
 
 export const Navbar = () => {

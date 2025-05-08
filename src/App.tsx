@@ -70,7 +70,7 @@ const linkList = [
   },
 ];
 
-export const App() =>{
+export const App = () => {
   return (
     <Layout title="tahaListens">
       <Navbar />
@@ -79,6 +79,6 @@ export const App() =>{
       <Footer />
     </Layout>
   );
-}
+};
 
-
+export default App;
