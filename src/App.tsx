@@ -15,6 +15,8 @@ import {
   FaTiktok,
   // FaDownload,
 } from "react-icons/fa";
+import Headshot from "./components/sections/Headshot";
+import { StarsBackground } from "./components/sections/StarsBackground";
 
 const linkList = [
   // {
@@ -72,12 +74,18 @@ const linkList = [
 
 export const App = () => {
   return (
-    <Layout title="tahaListens">
-      <Navbar />
-      <Linktree links={linkList} />
-      <AboutMe />
-      <Footer />
-    </Layout>
+    <div>
+      <StarsBackground />
+      <div className="absolute flex flex-col py-20">
+        <Layout title="tahaListens">
+          <Navbar />
+          <Headshot />
+          <Linktree links={linkList} />
+          <AboutMe />
+          <Footer />
+        </Layout>
+      </div>
+    </div>
   );
 };
 

@@ -9,6 +9,8 @@
   --heading-1: 23 37 84;
   --heading-2: 31 41 55;
   --heading-3: 55 65 81;
+  --link-bg: 75, 13, 102;
+  --link-bg-aux: 75, 13, 102;
 }
 
 .dark {
@@ -19,6 +21,8 @@
   --heading-1: 255 255 255;
   --heading-2: 243 244 246;
   --heading-3: 209 213 219;
+  --link-bg: 163 158 158;
+  --link-bg-aux: 163 158 158;
 }
 
 @layer utilities {
@@ -27,6 +31,12 @@
   }
   .bg-box-bg {
     background-color: rgb(var(--color-box));
+  }
+  .bg-link-bg {
+    background-color: rgb(var(--link-bg));
+  }
+  .bg-link-bg-aux {
+    background-color: rgb(var(--link-bg-aux));
   }
   .text-heading-1 {
     color: rgb(var(--heading-1));

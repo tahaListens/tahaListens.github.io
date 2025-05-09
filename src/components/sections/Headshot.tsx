@@ -1,6 +1,6 @@
 function Headshot() {
   return (
-    <div className="mt-20 flex justify-center">
+    <div className=" flex justify-center">
       <img
         src="/assets/images/headshot.jpg"
         alt="My Headshot"

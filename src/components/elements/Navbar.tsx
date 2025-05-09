@@ -22,7 +22,7 @@ export const Navbar = () => {
             <a href="/" className="relative flex items-center gap-3">
               <img src={logo} alt="EdgeAI Logo" className="w-10 h-10" />
               <div className="inline-flex text-lg font-semibold text-heading-1">
-                EdgeAI
+                tahaListens
               </div>
             </a>
           </div>
@@ -35,7 +35,7 @@ export const Navbar = () => {
             <ul
               className="border-t border-box-border lg:border-t-0 px-6 lg:px-0 
                            pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 
-                           text-lg text-heading-2 w-full lg:justify-center lg:items-center"
+                           text-lg text-heading-1 w-full lg:justify-center lg:items-center"
             >
               {navItems.map((item, key) => (
                 <NavItem href={item.href} text={item.text} key={key} />
