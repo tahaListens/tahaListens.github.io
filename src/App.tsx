@@ -3,6 +3,9 @@ import { Linktree } from "./components/sections/Linktree";
 import { AboutMe } from "./components/sections/AboutMe";
 import { Footer } from "./components/elements/Footer";
 import { Navbar } from "./components/elements/Navbar";
+import Headshot from "./components/sections/Headshot";
+import { StarsBackground } from "./components/sections/StarsBackground";
+import { ContactForm } from "./components/sections/ContactForm";
 import {
   FaGithub,
   FaLinkedin,
@@ -15,8 +18,6 @@ import {
   FaTiktok,
   // FaDownload,
 } from "react-icons/fa";
-import Headshot from "./components/sections/Headshot";
-import { StarsBackground } from "./components/sections/StarsBackground";
 
 const linkList = [
   // {
@@ -82,6 +83,7 @@ export const App = () => {
           <Headshot />
           <Linktree links={linkList} />
           <AboutMe />
+          <ContactForm />
           <Footer />
         </Layout>
       </div>
