@@ -96,3 +96,44 @@ export const StarsBackground = () => {
 
   return <div ref={mountRef} className="fixed inset-0 -z-10" />;
 };
+
+// import { Canvas } from "@react-three/fiber";
+// import { useThemeStore } from "../store/themestore"; // update with correct path
+// import { useEffect, useState } from "react";
+// import * as THREE from "three";
+
+// const Stars = ({ color }: { color: string }) => {
+//   const starGeometry = new THREE.BufferGeometry();
+//   const starMaterial = new THREE.PointsMaterial({ color });
+
+//   const starCount = 500;
+//   const positions = new Float32Array(starCount * 3);
+//   for (let i = 0; i < starCount * 3; i++) {
+//     positions[i] = (Math.random() - 0.5) * 100;
+//   }
+//   starGeometry.setAttribute(
+//     "position",
+//     new THREE.BufferAttribute(positions, 3)
+//   );
+
+//   return <points geometry={starGeometry} material={starMaterial} />;
+// };
+
+// const StarsBackground = () => {
+//   const theme = useThemeStore((state) => state.theme);
+
+//   return (
+//     <Canvas
+//       style={{ width: "100%", height: "100vh" }}
+//       camera={{ position: [0, 0, 30], fov: 75 }}
+//     >
+//       <color
+//         attach="background"
+//         args={[theme === "dark" ? "black" : "white"]}
+//       />
+//       <Stars color={theme === "dark" ? "white" : "black"} />
+//     </Canvas>
+//   );
+// };
+
+// export default StarsBackground;
