@@ -77,7 +77,7 @@ export const App = () => {
   return (
     <div>
       <StarsBackground />
-      <div className="absolute flex flex-col py-20">
+      <div className=" flex min-h-screen flex-col pt-20">
         <Layout title="tahaListens">
           <Navbar />
           <Headshot />

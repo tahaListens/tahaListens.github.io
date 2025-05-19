@@ -17,7 +17,7 @@ export const ContactForm = () => {
     >
       <div
         className=" w-full max-w-3xl rounded-xl border border-white bg-body-bg 
-                      p-4 py-8 l:mx-auto l:max-w-[50rem] l:p-16 bg-body-bg"
+                      p-4 py-8 l:mx-auto l:max-w-[50rem] l:p-16 bg-box-bg"
       >
         <div className="relative flex flex-col items-center justify-center gap-8 l:gap-16">
           <Title>
@@ -38,7 +38,7 @@ export const ContactForm = () => {
           >
             <div className="flex w-full flex-col gap-6 transition duration-300 ease-in-out l:grid l:grid-cols-2">
               {/* Your Name */}
-              <div className="contents active-cursor relative rounded-xl bg-gradient-to-r from-pink via-yellow to-blue p-1.5">
+              <div className="contents active-cursor relative rounded-xl bg-gradient-to-r  from-pink via-yellow to-blue p-1.5">
                 <div className="relative inline-flex h-16 w-full items-center justify-center rounded-lg transition duration-300 ease-in-out border ring-blue hover:ring-2">
                   <input
                     className="relative  z-10 w-full scroll-mt-32 !border-none bg-transparent pt-7 p-4 text-sm font-normal focus:ring-0 l:pr-4 l:text-sm text-white"
@@ -110,7 +110,7 @@ export const ContactForm = () => {
               </div>
               <div className="relative mt-4 block w-full l:mt-8">
                 <div className="relative inset-0 z-10 flex h-full w-full items-center justify-center p-8">
-                  <div className="bg-white text-black squircle group/button inline-block border-px border-transparent transition duration-300 ease-in-out hover:scale-105 cursor-pointer">
+                  <div className="bg-white text-black rounded-full group/button inline-block border-px border-transparent transition duration-300 ease-in-out hover:scale-105 cursor-pointer">
                     <button
                       type="submit"
                       disabled={state.submitting}
