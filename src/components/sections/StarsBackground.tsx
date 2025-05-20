@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { useThemeStore } from "../../store/ThemeStore";
 
 export const StarsBackground = () => {
   // Be explicit about the type
   const mountRef = useRef<HTMLDivElement>(null);
+  const theme = useThemeStore((state) => state.theme);
 
   useEffect(() => {
     // Early return if ref is not attached
@@ -11,6 +13,9 @@ export const StarsBackground = () => {
 
     // === Set up scene ===
     const scene = new THREE.Scene();
+    // Set background color based on theme
+    scene.background =
+      theme === "dark" ? new THREE.Color(0x000000) : new THREE.Color(0xffffff);
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -24,15 +29,11 @@ export const StarsBackground = () => {
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
 
+    //  === Set up background color ===
     // === Create stars ===
     const starGeometry = new THREE.BufferGeometry();
     const starCount = 1000;
     const starVertices = [];
-
-    starGeometry.setAttribute(
-      "position",
-      new THREE.Float32BufferAttribute(starVertices, 3)
-    );
 
     for (let i = 0; i < starCount; i++) {
       const x = (Math.random() - 0.5) * 1000;
@@ -52,7 +53,7 @@ export const StarsBackground = () => {
     );
 
     const starMaterial = new THREE.PointsMaterial({
-      color: 0xffffff,
+      color: theme === "dark" ? 0xffffff : 0x000000, // Change color based on theme
       size: 4,
       map: circleTexture,
       alphaTest: 0.9,
@@ -92,48 +93,7 @@ export const StarsBackground = () => {
       }
       renderer.dispose();
     };
-  }, []);
+  }, [theme]);
 
   return <div ref={mountRef} className="fixed inset-0 -z-10" />;
 };
-
-// import { Canvas } from "@react-three/fiber";
-// import { useThemeStore } from "../store/themestore"; // update with correct path
-// import { useEffect, useState } from "react";
-// import * as THREE from "three";
-
-// const Stars = ({ color }: { color: string }) => {
-//   const starGeometry = new THREE.BufferGeometry();
-//   const starMaterial = new THREE.PointsMaterial({ color });
-
-//   const starCount = 500;
-//   const positions = new Float32Array(starCount * 3);
-//   for (let i = 0; i < starCount * 3; i++) {
-//     positions[i] = (Math.random() - 0.5) * 100;
-//   }
-//   starGeometry.setAttribute(
-//     "position",
-//     new THREE.BufferAttribute(positions, 3)
-//   );
-
-//   return <points geometry={starGeometry} material={starMaterial} />;
-// };
-
-// const StarsBackground = () => {
-//   const theme = useThemeStore((state) => state.theme);
-
-//   return (
-//     <Canvas
-//       style={{ width: "100%", height: "100vh" }}
-//       camera={{ position: [0, 0, 30], fov: 75 }}
-//     >
-//       <color
-//         attach="background"
-//         args={[theme === "dark" ? "black" : "white"]}
-//       />
-//       <Stars color={theme === "dark" ? "white" : "black"} />
-//     </Canvas>
-//   );
-// };
-
-// export default StarsBackground;

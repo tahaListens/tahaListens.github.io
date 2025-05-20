@@ -20,7 +20,7 @@ export const Navbar = () => {
           {/* Logo */}
           <div className="min-w-max inline-flex relative">
             <a href="/" className="relative flex items-center gap-3">
-              <img src={logo} alt="EdgeAI Logo" className="w-10 h-10" />
+              <img src={logo} alt="tahaListens Logo" className="w-10 h-10" />
               <div className="inline-flex text-lg font-semibold text-heading-1">
                 tahaListens
               </div>
@@ -29,7 +29,7 @@ export const Navbar = () => {
 
           <div
             className="flex flex-col lg:flex-row w-full lg:justify-between lg:items-center 
-                      absolute top-full left-0 lg:static lg:top-0 bg-body lg:bg-transparent 
+                      absolute top-full left-0 lg:static lg:top-0 bg-transparent 
                       border-x border-x-box-border lg:border-x-0 lg:h-auto h-0 overflow-hidden"
           >
             <ul
