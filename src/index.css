@@ -22,7 +22,7 @@
   --heading-2: 243 244 246;
   --heading-3: 209 213 219;
   --link-bg: 163 158 158;
-  --link-bg-aux: 163 158 158;
+  --link-bg-aux: 204 153 255;
 }
 
 @layer utilities {
