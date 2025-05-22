@@ -5,7 +5,7 @@ import { NavItem } from "../shared/NavItem";
 
 export const Footer = () => {
   return (
-    <footer className="relative  pt-28 rounded-t-3xl bg-box-bg">
+    <footer className="relative  pt-28 rounded-t-3xl bg-transparent">
       <Container className=" pt-3 pb-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-3 mb-4 md:mb-0">

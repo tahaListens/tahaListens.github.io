@@ -16,7 +16,7 @@ export const ContactForm = () => {
           justify-center p-8 l:scroll-mt-24 l:px-0 l:pb-24 l:pt-8"
     >
       <div
-        className=" w-full max-w-3xl rounded-xl border border-white bg-body-bg 
+        className=" w-full max-w-3xl rounded-xl border-3 border-box-border bg-body-bg 
                       p-4 py-8 l:mx-auto l:max-w-[50rem] l:p-16 bg-box-bg"
       >
         <div className="relative flex flex-col items-center justify-center gap-8 l:gap-16">
@@ -38,10 +38,15 @@ export const ContactForm = () => {
           >
             <div className="flex w-full flex-col gap-6 transition duration-300 ease-in-out l:grid l:grid-cols-2">
               {/* Your Name */}
-              <div className="contents active-cursor relative rounded-xl bg-gradient-to-r  from-pink via-yellow to-blue p-1.5">
-                <div className="relative inline-flex h-16 w-full items-center justify-center rounded-lg transition duration-300 ease-in-out border ring-blue hover:ring-2">
+              <div className="contents active-cursor relative rounded-lg">
+                <div
+                  className="relative inline-flex h-16 w-full items-center justify-center rounded-lg 
+                                transition duration-100 ease-in-out border ring-box-border "
+                >
                   <input
-                    className="relative  z-10 w-full scroll-mt-32 !border-none bg-transparent pt-7 p-4 text-sm font-normal focus:ring-0 l:pr-4 l:text-sm text-white"
+                    className="relative rounded-lg  w-full scroll-mt-32 !border-none bg-transparent pt-7 p-4 
+                              text-sm font-normal l:pr-4 l:text-sm focus:ring-2 focus:ring-offset-2 hover:cursor-pointer hover:ring-2
+                              transition duration-200 text-heading-1 text-heading-1"
                     placeholder=" "
                     required
                     type="text"
@@ -58,14 +63,16 @@ export const ContactForm = () => {
               <div className="contents active-cursor relative rounded-xl bg-gradient-to-r from-pink via-yellow to-blue p-1.5">
                 <div
                   className="relative inline-flex h-16 w-full items-center justify-center rounded-lg transition duration-300 ease-in-out 
-                              border ring-blue hover:ring-2"
+                              border  hover:ring-2"
                 >
                   <input
                     id="email"
                     type="email"
                     name="email"
-                    className="relative  z-10 w-full scroll-mt-32 !border-none bg-transparent p-4 pr-4 pt-7 text-sm 
-                    font-normal focus:ring-0 l:pr-4 l:text-sm text-white align-bottom"
+                    className="relative  z-10 w-full scroll-mt-32 border rounded-lg bg-transparent p-4 pr-4 pt-7 text-sm 
+                    font-normal focus:ring-2 focus:ring-offset-2 
+                    hover:cursor-pointer hover:ring-2
+                    transition duration-200 text-heading-1"
                     placeholder=""
                   />
                   <label
@@ -90,14 +97,15 @@ export const ContactForm = () => {
                     id="message"
                     name="message"
                     rows="6"
-                    className="w-full px-4 py-8 rounded-md border text-sm
-                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary
-                    hover:cursor-pointer hover:border-gray-400
-                    transition duration-200 text-white"
+                    className="w-full px-4 py-8 rounded-lg border text-sm
+                    focus:ring-2 focus:ring-offset-2 
+                    hover:cursor-pointer hover:ring-2
+                    transition duration-200 text-heading-1"
                   />
+
                   <label
                     className="filled-text-fade absolute left-3 top-3 z-10 scroll-mt-32 font-sohne text-8pt font-bold uppercase tracking-widest transition duration-300 ease-in-out text-sm
-                       text-white !bg-gradient-to-r !from-purple-300 !to-blue-600 !bg-clip-text !text-transparent"
+                       !bg-gradient-to-r !from-purple-300 !to-blue-600 !bg-clip-text !text-transparent"
                   >
                     What's on your mind?
                   </label>
@@ -110,11 +118,11 @@ export const ContactForm = () => {
               </div>
               <div className="relative mt-4 block w-full l:mt-8">
                 <div className="relative inset-0 z-10 flex h-full w-full items-center justify-center p-8">
-                  <div className="bg-white text-black rounded-full group/button inline-block border-px border-transparent transition duration-300 ease-in-out hover:scale-105 cursor-pointer">
+                  <div className="bg-white text-black rounded-full   group/button inline-block border-px border-transparent transition duration-300 ease-in-out hover:scale-105 cursor-pointer">
                     <button
                       type="submit"
                       disabled={state.submitting}
-                      className="px-6 py-3 rounded-md font-semibold transition duration-200 hover:shadow-lg disabled:opacity-50"
+                      className="px-6 py-3 rounded-full font-semibold border-4 border-box-border transition duration-200 hover:shadow-lg disabled:opacity-50"
                     >
                       Submit
                     </button>
