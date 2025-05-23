@@ -8,6 +8,8 @@
   --box-sd: 226 232 240 / 0.5;
   --heading-1: 23 37 84;
   --heading-2: 31 41 55;
+  --heading-gr-1: 31 41 55;
+  --heading-gr-2: 75 85 99;
   --heading-3: 55 65 81;
   --link-bg: 75, 13, 102;
   --link-bg-aux: 217, 121, 254;
@@ -21,8 +23,10 @@
   --heading-1: 255 255 255;
   --heading-2: 243 244 246;
   --heading-3: 209 213 219;
+  --heading-gr-1: 246 182 182;
+  --heading-gr-2: 209 115 227;
   --link-bg: 163 158 158;
-  --link-bg-aux: 204 153 255;
+  --link-bg-aux: 171, 84, 231;
 }
 
 @layer utilities {
@@ -49,6 +53,9 @@
   }
   .text-heading-3 {
     color: rgb(var(--heading-3));
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-[rgb(var(--heading-gr-1))] to-[rgb(var(--heading-gr-2))] bg-clip-text text-transparent;
   }
 }
 

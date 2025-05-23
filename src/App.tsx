@@ -18,6 +18,7 @@ import {
   FaTiktok,
   // FaDownload,
 } from "react-icons/fa";
+import { Services } from "./components/sections/Services";
 
 const linkList = [
   // {
@@ -82,6 +83,7 @@ export const App = () => {
           <Navbar />
           <Headshot />
           <Linktree links={linkList} />
+          <Services />
           <AboutMe />
           <ContactForm />
           <Footer />
