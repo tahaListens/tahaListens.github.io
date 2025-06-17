@@ -21,11 +21,14 @@ export const AboutMe = () => {
         <div className="w-full md:w-7/12 lg:w-1/2 flex flex-col">
           <Title> developer, drummer, dreamer </Title>
           <Paragraph>
-            I am a passionate developer with a love for technology and
-            innovation. I believe in the power of AI to transform businesses and
-            improve lives. My goal is to create solutions that are not only
-            effective but also ethical and sustainable. I am committed to using
-            my skills to help bring your projects to life.
+            My name is Taha Arif. I am a passionate developer with a love for
+            technology and innovation. I am firm supporter of the idea that
+            technology should not only be effective, but also ethical and
+            sustainable. I am looking to build a career as a software engineer,
+            while also pursuing my passion in development work.
+            <br />I am always looking for opportunties to learn and grow! As
+            well as any opportunity to play the drums and support people's
+            musical vision.
           </Paragraph>
 
           <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
