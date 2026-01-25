@@ -1,9 +1,14 @@
 @import "tailwindcss";
-@import "tailwindcss";
+
 
 @theme {
+
+  --color-pink: #ff0080;
+  --color-yellow: #ffdc00;
+  --color-blue: #0070f3;
+  
   --color-bg: 255 255 255;
-  --color-box: 255 255 255;
+  --color-box: 17 24 39;
   --box-border: 0, 0, 0;
   --box-sd: 226 232 240 / 0.5;
   --heading-1: 23 37 84;
@@ -17,7 +22,7 @@
 
 .dark {
   --color-bg: 3 7 18;
-  --color-box: 17 24 39;
+  --color-box: 255 255 255;
   --box-border: 255, 255, 255;
   --box-sd: transparent;
   --heading-1: 255 255 255;

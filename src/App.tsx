@@ -19,6 +19,7 @@ import {
   // FaDownload,
 } from "react-icons/fa";
 import { Services } from "./components/sections/Services";
+import { Portfolio } from "./components/sections/Portfolio";
 
 const linkList = [
   // {
@@ -84,6 +85,7 @@ export const App = () => {
           <Headshot />
           <Linktree links={linkList} />
           <Services />
+          <Portfolio />
           <AboutMe />
           <ContactForm />
           <Footer />

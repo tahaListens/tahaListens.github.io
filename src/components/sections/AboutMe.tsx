@@ -21,17 +21,14 @@ export const AboutMe = () => {
         <div className="w-full md:w-7/12 lg:w-1/2 flex flex-col">
           <Title> developer, drummer, dreamer </Title>
           <Paragraph>
-            My name is Taha Arif. I am a passionate developer with a love for
-            technology and innovation. I am firm supporter of the idea that
-            technology should not only be effective, but also ethical and
-            sustainable. I am looking to build a career as a software engineer,
-            while also pursuing my passion in development work.
-            <br />I am always looking for opportunties to learn and grow! As
-            well as any opportunity to play the drums and support people's
-            musical vision.
+            My name is Taha Arif. I am a full stack web developer with over 2 years of experience. I was raised, and still live, in Raleigh, North Carolina.
+            <br />I enjoy spending time with family, banging on drums, and building robust webapps
+            that solve real world problems. Nothing makes me happier than seeing my clients' brand visions come to life through my work. 
+            Whether you need a simple landing page, a revamp on your existing site, or migrating to a new platform, I am here to help!
+            <br />I am always looking for opportunties to learn and grow! I am available for hire for freelance, part-time, and full-time work. 
           </Paragraph>
 
-          <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+          {/* <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
             <Info
               title="Current Project"
               description="This website, and learning how to React to changes in the web dev ecosystem."
@@ -72,7 +69,7 @@ export const AboutMe = () => {
                 />
               </svg>
             </Info>
-          </div>
+          </div> */}
         </div>
       </Container>
     </section>
