@@ -42,11 +42,13 @@ export const NavItem = ({ href, text, isActive, onClick }: NavItemProps) => {
       <a
         href={href}
         onClick={onClick}
-        className={`relative z-10 block px-5 py-2 text-xs font-bold uppercase tracking-widest transition-colors duration-200 nav-link ${
-                    isActive ? "text-black dark:text-white active" 
-                             : " text-link-bg dark:text-white hover:text-link-bg dark:hover:text-white" }`}
-  // We keep the active bubble logic here
-        style={{ anchorName: isActive ? '--active' : 'none' } as any}
+        className={`relative z-10 block px-5 py-2 text-xs font-bold uppercase
+                   tracking-widest transition-colors duration-200 nav-link ${
+                  isActive ? "text-black dark:text-white active" 
+                           : " text-link-bg dark:text-white hover:text-link-bg dark:hover:text-white" }`}
+        style={{
+          ...(isActive ? { anchorName: '--active' } : {})
+          } as any}
     >
         {text}
       </a>

@@ -36,17 +36,16 @@ export const Navbar = () => {
 
           
           <div className="rounded-full bg-gradient-to-r from-pink via-yellow to-blue p-[2px] shadow-lg w-fit mx-auto">
-            <div className="flex flex-col lg:flex-row lg:items-center 
+            <div className="flex flex-col w-fit mx-auto lg:flex-row lg:items-center 
               relative top-full left-0 lg:static lg:top-0 
               lg:h-auto  h-0 
-              navSlide-gradient
-              w-fit mx-auto rounded-full px-2 py-1
+              navSlide-gradient relative
+              rounded-full px-2 py-1
               nav-container"
   >
-            {/* <div className="relative nav-container"> */}
               {/* The Bubbles */}
-              <div className="bubble active-bubble" />
-              <div className="bubble hover-bubble" />
+              <div className="bubble active" />
+              <div className="bubble hover absolute" />
 
               <ul
                 className="border-t border-box-border lg:border-t-0 px-6 lg:px-0 
