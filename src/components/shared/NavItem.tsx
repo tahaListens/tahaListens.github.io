@@ -46,10 +46,7 @@ export const NavItem = ({ href, text, isActive, onClick }: NavItemProps) => {
                    tracking-widest transition-colors duration-200 nav-link ${
                   isActive ? "text-black dark:text-white active" 
                            : " text-link-bg dark:text-white hover:text-link-bg dark:hover:text-white" }`}
-        style={{
-          ...(isActive ? { anchorName: '--active' } : {})
-          } as any}
-    >
+      >
         {text}
       </a>
     </li>
