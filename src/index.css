@@ -18,6 +18,9 @@
   --heading-3: 55 65 81;
   --link-bg: 75, 13, 102;
   --link-bg-aux: 217, 121, 254;
+  --navSlide-bg1: 255 255 255;
+  --navSlide-bg2: 240 240 240;
+  --hover-bubble: 255 255 255;
 }
 
 .dark {
@@ -32,6 +35,13 @@
   --heading-gr-2: 209 115 227;
   --link-bg: 163 158 158;
   --link-bg-aux: 171, 84, 231;
+  /* --navSlide-bg1: rgb(53, 52, 52); 
+  --navSlide-bg2: rgb(36, 24, 24) ; */
+  --navSlide-bg1: 53 52 52 ; 
+  --navSlide-bg2: 36 24 24;
+  --hover-bubble: 255 255 255;
+
+
 }
 
 @layer utilities {
@@ -59,6 +69,19 @@
   .text-heading-3 {
     color: rgb(var(--heading-3));
   }
+
+  .text-link-bg {
+    color: rgb(var(--link-bg));
+  }
+  .text-link-bg-aux {
+    color: rgb(var(--link-bg-aux));
+  }
+
+
+.navSlide-gradient {
+    background: linear-gradient(180deg, rgb(var(--navSlide-bg1)), rgb(var(--navSlide-bg2)));
+  }
+
   .gradient-text {
     @apply bg-gradient-to-r from-[rgb(var(--heading-gr-1))] to-[rgb(var(--heading-gr-2))] bg-clip-text text-transparent;
   }
@@ -70,4 +93,60 @@ html {
 
 body {
   font-family: "Raleway", sans-serif;
+}
+
+.nav-container {
+  anchor-name: --nav-area;  
+  anchor-scope: --hover-target, --active;
+}
+
+
+.nav-link {
+  z-index: 20;  
+}
+
+.nav-link:hover {
+  /* This tells the hover bubble where to go */
+  anchor-name: --hover-target;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none; /* Let clicks pass through to the links */
+  top: anchor(top);
+  bottom: anchor(bottom);
+  left: anchor(left);
+  right: anchor(right);
+  z-index:10;
+}
+
+.active-bubble {
+  position-anchor: --active;
+  background: rgb(var(--link-bg-aux));
+  z-index: 12;
+  /* Glowing effect from Raul's design */
+  box-shadow: 0 4px 15px rgb(var(--link-bg));
+}
+
+.hover-bubble {
+  position-anchor: --hover-target;
+  background: rgb(var(--hover-bubble)); 
+  z-index: 11;
+  /* opacity: 0; */ 
+  display: block; 
+  visibility: hidden; 
+  opacity: 0;
+}
+
+/* Only show hover bubble when a link (not active) is hovered */
+.nav-list:hover .hover-bubble {
+ visibility: visible;
+  opacity: 1;
+}
+
+/* Hide hover bubble if it's over the active one */
+.nav-link.active:hover ~ .hover-bubble {
+  opacity: 0;
 }
