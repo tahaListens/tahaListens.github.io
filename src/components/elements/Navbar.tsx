@@ -79,7 +79,7 @@ export const Navbar = () => {
           <div className="rounded-full bg-gradient-to-r from-pink via-yellow to-blue p-[2px] shadow-lg w-fit mx-auto">
             <div className="flex flex-col w-fit mx-auto lg:flex-row lg:items-center 
               relative top-full left-0 lg:static lg:top-0 
-              lg:h-auto  h-0 
+              lg:h-auto  h-0 hidden lg:flex
               navSlide-gradient relative
               rounded-full px-2 py-1
               nav-container"
