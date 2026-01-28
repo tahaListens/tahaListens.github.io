@@ -1,9 +1,8 @@
 import { Container } from "../shared/Container";
 import logo from "/assets/icon.svg";
 import { NavItem } from "../shared/NavItem";
-import { BtnLink } from "../shared/BtnLink";
 import { useThemeStore } from "../../store/ThemeStore";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const navItems = [
   { href: "#", text: "Links" },
@@ -15,7 +14,49 @@ export const navItems = [
 
 export const Navbar = () => {
   const { toggleTheme, theme } = useThemeStore();
-  const [activeTab, setActiveTab] =  useState(navItems[0].text);
+  const [activeTab, setActiveTab] = useState(navItems[0].text);
+  const isScrollingRef = useRef(false);
+
+  useEffect(() => {
+    const sectionNavs = navItems.filter(item => item.href !== "#");
+    const sectionIds = sectionNavs.map(item => item.href.replace('#', ''));
+    const sectionElements = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    if (sectionElements.length === 0) return;
+
+    let timeoutId;
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        if (isScrollingRef.current) return;
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length > 0) {
+          // Pick the one closest to the top
+          const sorted = visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          const id = sorted[0].target.id;
+          const nav = navItems.find(item => item.href === `#${id}`);
+          if (nav && nav.text !== activeTab) setActiveTab(nav.text);
+        } else {
+          // If scrolled above the first section, set to 'Links'
+          const firstSection = sectionElements[0];
+          if (firstSection) {
+            const rect = firstSection.getBoundingClientRect();
+            if (rect.top > 80 && activeTab !== navItems[0].text) {
+              setActiveTab(navItems[0].text);
+            }
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-40% 0px -50% 0px',
+        threshold: 0.01,
+      }
+    );
+    sectionElements.forEach(el => observer.observe(el));
+    return () => {
+      observer.disconnect();
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [activeTab]);
 
   return (
     // <header className="sticky inset-x-0 top-0 z-50 py-6">
@@ -53,12 +94,31 @@ export const Navbar = () => {
                             text-lg text-heading-1 w-full lg:justify-center lg:items-center nav-list"
               >
                 {navItems.map((item, key) => (
-                  <NavItem 
+                  <NavItem
                     key={item.text}
-                    href={item.href} 
-                    text={item.text} 
+                    href={item.href}
+                    text={item.text}
                     isActive={activeTab === item.text}
-                    onClick={() => setActiveTab(item.text)}
+                    onClick={e => {
+                      setActiveTab(item.text);
+                      if (item.href !== "#") {
+                        isScrollingRef.current = true;
+                        const id = item.href.replace("#", "");
+                        const el = document.getElementById(id);
+                        if (el) {
+                          el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                        setTimeout(() => {
+                          isScrollingRef.current = false;
+                        }, 800);
+                      } else {
+                        isScrollingRef.current = true;
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        setTimeout(() => {
+                          isScrollingRef.current = false;
+                        }, 800);
+                      }
+                    }}
                   />
                 ))}
               </ul>
