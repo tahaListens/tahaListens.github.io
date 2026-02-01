@@ -33,16 +33,16 @@ const services: Service[] = [
 
 const ServiceCard: React.FC<Service> = ({ title, description, icon, details }) => {
   return (
-    <div className="group relative overflow-hidden bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+    <div className="group relative overflow-hidden bg-service-card-bg p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
       {/* Main Content */}
       <div className="text-4xl mb-4">{icon}</div>
       <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
         {title}
       </h3>
-      <p className="text-gray-600 dark:text-gray-300">{description}</p>
+      <p className="text-white dark:text-gray-300">{description}</p>
 
       {/* Wipe Overlay */}
-      <div className="absolute inset-0 bg-blue-600 dark:bg-blue-700 p-6 flex flex-col justify-center items-start translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out">
+      <div className="absolute inset-0 rounded-lg bg-service-wipe-bg p-6 flex flex-col justify-center items-start translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out">
         <h3 className="text-white font-bold mb-3 text-xl">What I Offer:</h3>
         <ul className="text-white text-sm space-y-2">
           {details.map((item, i) => (
@@ -64,9 +64,8 @@ export const Services = () => {
           <h2 className="text-4xl font-bold mb-4">
             <span className="gradient-text"> Services </span>
           </h2>
-          <p className="text-lg text-heading-2">
-            My current journey in tinkering on the Web has led me to offer the following. 
-          </p>
+          <p className="text-lg text-heading-2">I will make your brand pop, and your online engagement increase with any of the following bespoke services.
+          </p>    
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (

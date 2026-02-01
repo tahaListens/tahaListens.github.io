@@ -18,6 +18,10 @@
   --heading-3: 55 65 81;
   --link-bg: 75, 13, 102;
   --link-bg-aux: 217, 121, 254;
+  --service-card-bg: 117 133 167; 
+  --service-wipe-bg: 125 100 153;
+
+
   --navSlide-bg1: 255 255 255;
   --navSlide-bg2: 240 240 240;
   --hover-bubble: 209 238 239;
@@ -36,15 +40,13 @@
   --heading-gr-2: 209 115 227;
   --link-bg: 163 158 158;
   --link-bg-aux: 171, 84, 231;
-  /* --navSlide-bg1: rgb(53, 52, 52); 
-  --navSlide-bg2: rgb(36, 24, 24) ; */
+  --service-card-bg: 227, 136, 89;
+  --service-wipe-bg: 125 100 153;
+
   --navSlide-bg1: 53 52 52 ; 
   --navSlide-bg2: 36 24 24;
   --hover-bubble: 149 135 147;
   --hover-bubble-aux: 69 61 61/.23;
-
-
-
 }
 
 @layer utilities {
@@ -62,6 +64,12 @@
   }
   .bg-link-bg-aux {
     background-color: rgb(var(--link-bg-aux));
+  }
+  .bg-service-card-bg {
+    background-color: rgb(var(--service-card-bg));
+  }
+  .bg-service-wipe-bg {
+    background-color: rgb(var(--service-wipe-bg));
   }
   .text-heading-1 {
     color: rgb(var(--heading-1));
