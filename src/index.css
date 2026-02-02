@@ -8,8 +8,9 @@
   --color-blue: #0070f3;
   
   --color-bg: 255 255 255;
-  --color-box: 17 24 39;
-  --box-border: 0, 0, 0;
+  --color-box: 198 198 215;
+  --box-border: 104 53 157;
+  --box-border-hover: 102 0 102;
   --box-sd: 226 232 240 / 0.5;
   --heading-1: 23 37 84;
   --heading-2: 31 41 55;
@@ -30,8 +31,9 @@
 
 .dark {
   --color-bg: 3 7 18;
-  --color-box: 255 255 255;
-  --box-border: 255, 255, 255;
+  --color-box: 8 8 9;
+  --box-border: 35 80 79;
+  --box-border-hover: 255 255 255;
   --box-sd: transparent;
   --heading-1: 255 255 255;
   --heading-2: 243 244 246;
@@ -52,7 +54,11 @@
 @layer utilities {
   .border-box-border {
     border-color: rgb(var(--box-border));
+    &:hover {
+      border-color: rgb(var(--box-border-hover));
+    }
   }
+
   .bg-body {
     background-color: rgb(var(--color-bg));
   }
@@ -87,7 +93,7 @@
   .text-link-bg-aux {
     color: rgb(var(--link-bg-aux));
   }
-
+}
 
 .navSlide-gradient {
     background: linear-gradient(180deg, rgb(var(--navSlide-bg1)), rgb(var(--navSlide-bg2)));
@@ -97,7 +103,7 @@
   .gradient-text {
     @apply bg-gradient-to-r from-[rgb(var(--heading-gr-1))] to-[rgb(var(--heading-gr-2))] bg-clip-text text-transparent;
   }
-}
+
 
 html {
   scroll-behavior: smooth;

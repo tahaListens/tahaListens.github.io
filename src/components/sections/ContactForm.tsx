@@ -9,76 +9,71 @@ export const ContactForm = () => {
     return <div>Thanks for reaching out! </div>;
   }
 
+  const inputBaseClasses = `
+    peer relative z-10 w-full rounded-xl border-4 p-4 pt-7 text-sm transition-all duration-300
+    focus:outline-none focus:ring-0 text-heading-1
+    hover:cursor-pointer bg-box-bg border-box-border
+    /* Light Theme Styles */
+    border-gray-200 text-black hover:border-blue-400
+    /* Dark Theme Styles */
+     dark:border-gray-700 dark:text-white dark:hover:border-purple-500
+  `;
+
+  const labelBaseClasses = `
+    absolute left-4 top-2 z-20 font-bold uppercase tracking-widest text-[10px]
+    gradient-text bg-clip-text text-transparent
+    pointer-events-none transition-all duration-300
+  `;
+
   return (
-    <section
-      id="contact"
-      className="relative z-0 scroll-mt-24 relative z-[500] flex 
-          justify-center p-8 l:scroll-mt-24 l:px-0 l:pb-24 l:pt-8"
-    >
-      <div
-        className=" w-full max-w-3xl rounded-xl border-3 border-box-border bg-body-bg 
-                      p-4 py-8 l:mx-auto l:max-w-[50rem] l:p-16 bg-box-bg"
-      >
+    <section id="contact" className="relative z-0 scroll-mt-24 relative  flex 
+          justify-center p-8 ">
+      <div className=" w-full max-w-3xl rounded-xl bg-transparent 
+                      p-4">
+        {/* Title */}
         <div className="relative flex flex-col items-center justify-center gap-8 l:gap-16">
           <Title>
-            {" "}
-            <span className="!bg-gradient-to-r !from-purple-300 !to-blue-600 !bg-clip-text !text-transparent">
-              Contact Me
-            </span>
+            <span className="gradient-text bg-clip-text text-transparent">
+              Contact Me </span>
           </Title>
-          <p className="text-lg mb-10 text-white justify-center text-center">
-            I would love to hear from you! Please fill out the form below and I
-            will get back to you as soon as possible.
-          </p>
+          <p className="text-lg mb-10 text-heading-1
+           justify-center text-center">
+            Let's build something together! </p>
         </div>
+        {/* Form */}
         <div className="w-full max-w-xl mx-auto ">
           <form
             className="relative w-full scroll-mt-32"
             onSubmit={handleSubmit}
           >
-            <div className="flex w-full flex-col gap-6 transition duration-300 ease-in-out l:grid l:grid-cols-2">
+            <div className="flex w-full flex-col
+             gap-6">
               {/* Your Name */}
-              <div className="contents active-cursor relative rounded-lg">
-                <div
-                  className="relative inline-flex h-16 w-full items-center justify-center rounded-lg 
-                                transition duration-100 ease-in-out border ring-box-border "
-                >
-                  <input
-                    className="relative rounded-lg  w-full scroll-mt-32 !border-none bg-transparent pt-7 p-4 
-                              text-sm font-normal l:pr-4 l:text-sm focus:ring-2 focus:ring-offset-2 hover:cursor-pointer hover:ring-2
-                              transition duration-200 text-heading-1 text-heading-1"
-                    placeholder=" "
-                    required
-                    type="text"
-                  />
-                  <label
-                    className="filled-text-fade absolute left-0 top-0 z-0 scroll-mt-32 pl-3 pt-1 font-sohne text-sm font-bold uppercase tracking-widest transition duration-300 ease-in-out
-                   text-heading-1 !bg-gradient-to-r !from-purple-300 !to-blue-600 !bg-clip-text !text-transparent"
-                  >
+              <div className="contents active-cursor relative inline-flex h-16 items-center justify-center">              
+                  <input className={inputBaseClasses}
+                          id="name"
+                          name="name"
+                          placeholder=" "
+                          required
+                          type="text"/>
+                  <label className={labelBaseClasses}>
                     Your Name
                   </label>
-                </div>
               </div>
               {/* Email */}
-              <div className="contents active-cursor relative rounded-xl bg-gradient-to-r from-pink via-yellow to-blue p-1.5">
+              <div className="contents active-cursor relative rounded-xl p-1.5">
                 <div
-                  className="relative inline-flex h-16 w-full items-center justify-center rounded-lg transition duration-300 ease-in-out 
-                              border  hover:ring-2"
-                >
+                  className="relative inline-flex h-16 w-full items-center justify-center rounded-lg transition duration-300 ease-in-out ">
                   <input
                     id="email"
                     type="email"
                     name="email"
-                    className="relative  z-10 w-full scroll-mt-32 border rounded-lg bg-transparent p-4 pr-4 pt-7 text-sm 
-                    font-normal focus:ring-2 focus:ring-offset-2 
-                    hover:cursor-pointer hover:ring-2
-                    transition duration-200 text-heading-1"
+                    className={inputBaseClasses}
                     placeholder=""
                   />
                   <label
                     htmlFor="email"
-                    className="filled-text-fade absolute left-0 top-0 z-0 scroll-mt-32 pl-3 pt-2 font-sohne text-sm font-bold uppercase tracking-widest transition duration-300 ease-in-out text-white 
-                      !bg-gradient-to-r !from-purple-300 !to-blue-600 !bg-clip-text !text-transparent"
+                    className={labelBaseClasses}
                   >
                     Email Address
                   </label>
@@ -92,22 +87,18 @@ export const ContactForm = () => {
               </div>
 
               <div className="contents active-cursor relative rounded-xl bg-gradient-to-r from-pink via-yellow to-blue p-1.5 col-span-2">
-                <div className="relative inline-flex h-full w-full items-center justify-center rounded-lg transition duration-300 ease-in border border-gray-900 bg-gray-1100">
+                <div className="relative inline-flex h-full w-full items-center justify-center rounded-lg transition duration-300 ease-in">
                   <textarea
                     id="message"
                     name="message"
                     rows="6"
-                    className="w-full px-4 py-8 rounded-lg border text-sm
-                    focus:ring-2 focus:ring-offset-2 
-                    hover:cursor-pointer hover:ring-2
-                    transition duration-200 text-heading-1"
+                    className={inputBaseClasses}
                   />
 
                   <label
-                    className="filled-text-fade absolute left-3 top-3 z-10 scroll-mt-32 font-sohne text-8pt font-bold uppercase tracking-widest transition duration-300 ease-in-out text-sm
-                       !bg-gradient-to-r !from-purple-300 !to-blue-600 !bg-clip-text !text-transparent"
+                    className={labelBaseClasses}
                   >
-                    What's on your mind?
+                    What can I help with?
                   </label>
                   <ValidationError
                     prefix="Message"
@@ -122,8 +113,8 @@ export const ContactForm = () => {
                     <button
                       type="submit"
                       disabled={state.submitting}
-                      className="px-6 py-3 rounded-full font-semibold border-4 border-box-border transition duration-200 hover:shadow-lg disabled:opacity-50"
-                    >
+                      className="px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-purple-400 to-blue-600 transition duration-200 hover:shadow-sm hover:shadow-purple-500 disabled:opacity-50"
+                    >            
                       Submit
                     </button>
                   </div>
@@ -138,3 +129,4 @@ export const ContactForm = () => {
 };
 
 export default ContactForm;
+

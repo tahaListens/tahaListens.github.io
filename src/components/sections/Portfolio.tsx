@@ -81,22 +81,22 @@ export const Portfolio = () => {
   return (
     <Container>
     <section id="portfolio" className=" bg-transparent flex flex-col c:aspect-video c:w:aspect-auto c:w:min-h-screen c:aspect-auto!">
-      <div className="flex w-full flex-1 flex-col px-6 py-12 t:p-12 c:p-24 relative">
+      <div className="flex w-full flex-1 flex-col px-6 py-12 relative">
           <div className="flex grow items-center" style={{ perspective: "1000px", perspectiveOrigin: "0% 10%" }}></div>
 
-          <div className="h-full flex-col c:flex">
+          <div className="h-full flex-col ">
               <div className="pt-16 pb-8 text-center">
                 <h2 className="text-4xl font-bold mb-4">
                     <span className="gradient-text">Portfolio</span>
                 </h2>
                 <p className="text-lg text-heading-2">Check out my past work.</p>
               </div>
-              <div className= "flex flex-1 items-center gap-16 py-8">
+              <div className= "hidden lg:flex flex-1 items-center gap-16 py-8 ">
                 <div className= "w-gr-lg">
                   <div className="relative h-88 w-176 pl-24"
                       style={{ perspective: "1200px", perspectiveOrigin: "0% 50%" }}> 
                     <div className="relative h-full w-full"
-                          style={{ transformStyle: "preserve-3d", transform: "rotateX(8deg) rotateY(12deg)" }}>
+                        style={{ transformStyle: "preserve-3d", transform: "rotateX(8deg) rotateY(12deg)" }}>
                         
                         {projects.map((project) => (
                           <div className="absolute inset-0"
@@ -116,27 +116,29 @@ export const Portfolio = () => {
                                 className={""}/>
                               </div>
                           </div>
-                        ))}</div></div>
-                <div className= "flex w-gr-sm items-center justify-center">
+                          ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className= "flex w-gr-sm">
                   <div className="relative -bottom-6 flex w-full max-w-[16rem] flex-col gap-1">
                     {projects.map((project) => (
                       <button 
                         key={project.id} 
-                        className="group flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left transition-all duration-300 ease-in-out bg-transparent hover:bg-white/5"
+                        className={`group flex w-full items-center gap-1 rounded-lg px-4 py-2 text-left transition-all duration-300 
+                          ease-in-out ${project.id === activeCardId ? 'bg-gray-100/75 dark:bg-white/10' : 'bg-transparent'}`}
                         onMouseEnter={() => setActiveCardId(project.id)}
                       >
-                        <span className="relative -bottom-px font-berkeley text-8pt tabular-nums transition-colors duration-300 ease-in-out text-gray-700 group-hover:text-white">{project.id}.</span>
+                        <span className="relative -bottom-px font-berkeley font-bold text-8pt tabular-nums transition-colors duration-300 ease-in-out text-gray-700 group-hover:text-white">{project.id + 1}.</span>
                         <span className="flex-1 font-sohne text-12pt font-semibold transition-colors duration-300 ease-in-out text-gray-500 group-hover:text-white">{project.client_name}</span> 
                       </button>
                     ))} 
                   </div>
                   </div>
-              </div>
-            </div>
-          
-        
-        
-          </div></div>
+                </div>
+          </div>
+      </div>
       {/* Modal Overlay */}
       {selectedProject && (
         <div 
