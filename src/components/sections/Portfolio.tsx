@@ -13,7 +13,6 @@ interface Project {
 
 interface PortfolioCardProps {
   project: Project;
-  onClick: () => void;
   className?: string;
 }
 
@@ -38,14 +37,18 @@ const projects: Project[] = [
   }
 ];
 
-export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick, className }) => {
+// function that will look at the project.id and compare it to the active card id. it will then look at every 
+// if project.id < activeCardId, apply a transform a
+// Cards with ID < Active ID: These are the ones that have already been "pulled." We animate them to a translateZ that is positive (e.g., 500px) and fade their opacity to 0. This makes them look like they flew past the viewer's head.
+// The Active Card: This sits at translateZ(0px) with scale(1) and opacity(1). Cards behind this card also have an opacity of 1
+// Cards with ID > Active ID: These are the ones still in the deck. We dynamically calculate their translateZ based on their distance from the active card. For example: translateZ(${(id - activeId) * -150}px). This keeps the stack perfectly spaced
+// this function will be called by the buttons in the right side of the portfolio section
+
+
+export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, className }) => {
   return (
-    <div 
-      onClick={onClick}
-      className={`group cursor-pointer bg-transparent transition-transform duration-300 hover:-translate-y-2 ${className}`}
-    >
-      <div className="rounded-xl bg-gradient-to-r from-pink via-yellow to-blue p-[2px] shadow-lg">
-        <div className="relative flex aspect-video flex-col justify-between overflow-hidden rounded-[10px] bg-white dark:bg-gray-900 p-6">
+    
+        <div className={`relative flex aspect-video flex-col justify-between overflow-hidden rounded-[10px] bg-white dark:bg-gray-900 p-6 ${className}`}>
           <div>
             <div className="text-4xl mb-3">{project.logo}</div>
             <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -64,13 +67,16 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, onClick, 
             ))}
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
 export const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeCardId, setActiveCardId] = useState<number>(0);
+
+  // const shiftDeck= (id: number) => {
+  //   setActiveCardId(id);
+  // }
 
   return (
     <Container>
@@ -94,15 +100,21 @@ export const Portfolio = () => {
                         
                         {projects.map((project) => (
                           <div className="absolute inset-0"
-                                style= {{zIndex:8-project.id,opacity:1,
-                                transform:`translateZ(${ project.id * -150}px) scale(${1 - project.id * 0.03})`}} >
+                                style={{ zIndex: project.id < activeCardId ? 0 : 8 - Math.abs(project.id - activeCardId) , opacity: project.id < activeCardId ? 0 : 1,
+                                transform: project.id < activeCardId ? 'translateZ(1000px) scale(0)' : `translateZ(${(project.id - activeCardId) * -100}px) scale(${1 - (project.id - activeCardId) * 0.03})`,
+                                transition: 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s ease' }}>
                             
+                            <div 
+                              onClick ={() => project.id === activeCardId ? setSelectedProject(project) : null}
+                              className={`group cursor-pointer transition-transform duration-300  
+                              rounded-xl p-[4px] shadow-lg ${project.id === activeCardId ? 'bg-gradient-to-r from-pink via-yellow to-blue hover:-translate-y-2 ' : 'bg-gray-800 dark:bg-gray-100' }}`}>
+
                             
-                            <PortfolioCard 
-                            key={project.id} 
-                            project={project} 
-                            onClick={() => setSelectedProject(project)} 
-                            className={""}/>
+                                <PortfolioCard 
+                                key={project.id} 
+                                project={project} 
+                                className={""}/>
+                              </div>
                           </div>
                         ))}</div></div>
                 <div className= "flex w-gr-sm items-center justify-center">
@@ -111,7 +123,7 @@ export const Portfolio = () => {
                       <button 
                         key={project.id} 
                         className="group flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left transition-all duration-300 ease-in-out bg-transparent hover:bg-white/5"
-                        onClick={() => setSelectedProject(project)}
+                        onMouseEnter={() => setActiveCardId(project.id)}
                       >
                         <span className="relative -bottom-px font-berkeley text-8pt tabular-nums transition-colors duration-300 ease-in-out text-gray-700 group-hover:text-white">{project.id}.</span>
                         <span className="flex-1 font-sohne text-12pt font-semibold transition-colors duration-300 ease-in-out text-gray-500 group-hover:text-white">{project.client_name}</span> 
