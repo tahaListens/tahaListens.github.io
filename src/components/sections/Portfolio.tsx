@@ -34,15 +34,17 @@ const projects: Project[] = [
     logo: "🎵",
     fullDescription: "A full-scale Website for a custom packaging business, featuring product catalogs with product filtering, lead generation, SEO, and a blog.",
     tags: ["Wordpress", "Woocommerce", "ACF", "Elementor", "Hostinger"],
+  },
+  {
+    id: 2,
+    client_name: "This Website",
+    service_provided: "High Performance SPA",
+    service_short: ["React", "Next.js", "Tailwind CSS"],
+    logo: "🚀",
+    fullDescription: "A high-performance single-page application built with React and Next.js, featuring responsive design and optimized performance.",
+    tags: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
   }
 ];
-
-// function that will look at the project.id and compare it to the active card id. it will then look at every 
-// if project.id < activeCardId, apply a transform a
-// Cards with ID < Active ID: These are the ones that have already been "pulled." We animate them to a translateZ that is positive (e.g., 500px) and fade their opacity to 0. This makes them look like they flew past the viewer's head.
-// The Active Card: This sits at translateZ(0px) with scale(1) and opacity(1). Cards behind this card also have an opacity of 1
-// Cards with ID > Active ID: These are the ones still in the deck. We dynamically calculate their translateZ based on their distance from the active card. For example: translateZ(${(id - activeId) * -150}px). This keeps the stack perfectly spaced
-// this function will be called by the buttons in the right side of the portfolio section
 
 
 export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, className }) => {
@@ -61,7 +63,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, className
           {/* Card Bubbles */}
           <div className="flex flex-wrap gap-2">
             {project.service_short.map(tag => (
-              <span key={tag} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-md text-[10px] font-bold uppercase tracking-tight">
+              <span key={tag} className="px-2 py-1 bg-box-bg text-gray-600 dark:text-gray-300 rounded-md text-[10px] font-bold uppercase tracking-tight">
                 {tag}
               </span>
             ))}
@@ -79,21 +81,52 @@ export const Portfolio = () => {
   // }
 
   return (
-    <Container>
-    <section id="portfolio" className=" bg-transparent flex flex-col c:aspect-video c:w:aspect-auto c:w:min-h-screen c:aspect-auto!">
-      <div className="flex w-full flex-1 flex-col px-6 py-12 relative">
-          <div className="flex grow items-center" style={{ perspective: "1000px", perspectiveOrigin: "0% 10%" }}></div>
+    
+    <section id="portfolio" className=" bg-transparent flex flex-col ">
+      <div className="flex flex-col relative">
+          <div className="carousel flex cursor-grab touch-pan-y lg:hidden rounded-2xl"
+              style={{ transform: "rotateX(7deg) rotateY(-14deg) rotateZ(7deg)" }}>
 
-          <div className="h-full flex-col ">
-              <div className="pt-16 pb-8 text-center">
-                <h2 className="text-4xl font-bold mb-4">
+            <div className="group-port flex flex-row flex-grow pr-[.5em] gap-[1em] justify-center">
+              {projects.map((project) => (
+                <div onClick ={() => setSelectedProject(project)}
+                  className=" cursor-pointer shrink-0  w-[90vw] md:w-[400px]
+                  rounded-xl p-[4px] shadow-lg bg-gradient-to-r from-pink via-yellow to-blue" >
+                  <PortfolioCard 
+                    key={project.id} 
+                    project={project} 
+                    className="card"
+                  /> 
+                </div> 
+              ))}
+              </div>
+            <div aria-hidden className="group-port flex flex-row flex-grow gap-[1em] justify-center">
+              {projects.map((project) => (
+                <div onClick ={() => setSelectedProject(project)}
+                  className=" cursor-pointer shrink-0 w-[90vw] md:w-[400px]
+                  rounded-xl p-[4px] shadow-lg bg-gradient-to-r from-pink via-yellow to-blue" >
+                  <PortfolioCard 
+                    key={project.id} 
+                    project={project} 
+                    className="card"
+                  /> 
+                </div> 
+              ))}
+              </div>
+              
+           
+          </div>
+          
+          <div className=" hidden lg:flex h-full flex-col ">
+              <div className=" pt-16 pb-8 text-center">
+                <h2 className="text-4xl font-bold my-4">
                     <span className="gradient-text">Portfolio</span>
                 </h2>
                 <p className="text-lg text-heading-2">Check out my past work.</p>
               </div>
-              <div className= "hidden lg:flex flex-1 items-center gap-16 py-8 ">
-                <div className= "w-gr-lg">
-                  <div className="relative h-88 w-176 pl-24"
+              <div className= "flex flex-row items-center py-8">
+                <div className= "flex ">
+                  <div className="card-group relative h-88 w-176 pl-12"
                       style={{ perspective: "1200px", perspectiveOrigin: "0% 50%" }}> 
                     <div className="relative h-full w-full"
                         style={{ transformStyle: "preserve-3d", transform: "rotateX(8deg) rotateY(12deg)" }}>
@@ -120,9 +153,8 @@ export const Portfolio = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className= "flex w-gr-sm">
-                  <div className="relative -bottom-6 flex w-full max-w-[16rem] flex-col gap-1">
+                <div className= "flex pl-40">
+                  <div className="btn-group relative -bottom-6 flex w-full max-w-[12rem] flex-col gap-1">
                     {projects.map((project) => (
                       <button 
                         key={project.id} 
@@ -173,7 +205,7 @@ export const Portfolio = () => {
       )}
 
     </section>
-          </Container>
+         
 
   );
 };

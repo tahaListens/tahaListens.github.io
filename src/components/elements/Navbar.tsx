@@ -67,7 +67,7 @@ export const Navbar = () => {
         <nav className="w-full flex justify-between items-center gap-6 relative ">
           {/* Logo */}
           <div className="min-w-max inline-flex relative">
-            <a href="/" className="relative flex items-center gap-3">
+            <a href="#" className="relative flex items-center gap-3">
               <img src={logo} alt="tahaListens Logo" className="w-10 h-10" />
               <div className="inline-flex text-lg font-semibold text-heading-1">
                 tahaListens

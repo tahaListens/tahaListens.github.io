@@ -162,5 +162,19 @@ body {
 
 .nav-link {
   z-index: 20;  
+} 
+ 
+.group-port{
+  animation: slider 15s infinite linear;
 }
-
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+@keyframes slider {
+  from {
+    translate: 0;
+  }
+  to {
+    translate:calc(-100% - 1rem); 
+  }
+}
