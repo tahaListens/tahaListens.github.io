@@ -63,7 +63,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, className
           {/* Card Bubbles */}
           <div className="flex flex-wrap gap-2">
             {project.service_short.map(tag => (
-              <span key={tag} className="px-2 py-1 bg-box-bg text-gray-600 dark:text-gray-300 rounded-md text-[10px] font-bold uppercase tracking-tight">
+              <span key={tag} className="px-2 py-1 border bg-black text-gray-600 dark:text-gray-300 rounded-md text-[10px] font-bold uppercase tracking-tight">
                 {tag}
               </span>
             ))}

@@ -96,7 +96,7 @@ const ServiceCard: React.FC<Service> = ({ title, description, icon, details }) =
         group-hover:translate-x-0 
         group-focus:translate-x-0 
         group-focus-within:translate-x-0 
-        
+
         transition-transform 
         duration-500 
         ease-in-out
