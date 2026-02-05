@@ -1,9 +1,9 @@
-import { Container } from "../shared/Container";
 import { useState } from "react";
 
 interface Project {
   id: number;
   client_name: string;
+  link: string;
   service_provided: string;
   service_short: string[];
   logo: string;
@@ -20,24 +20,27 @@ const projects: Project[] = [
   {
     id: 0,
     client_name: "iPrintSol",
+    link: "https://www.iprintsol.pk",
     service_provided: "Enterprise Custom Printing Solutions",
     service_short: ["Woocommerce Website Development"],
-    logo: "🛍️",
+    logo: "🖨️",
     fullDescription: "A full-scale Website for a custom printing business, featuring product catalogs with product filtering, lead generation, SEO, and a blog.",
     tags: ["Wordpress", "Woocommerce", "ACF", "Elementor", "Hostinger"],
   },
   {
     id: 1,
     client_name: "Raiz Packaging",
+    link: "https://www.RaizPackaging.com",
     service_provided: "Custom Packaging Supplier",
     service_short: ["Woocommerce Website Development"],
-    logo: "🎵",
+    logo: "📦",
     fullDescription: "A full-scale Website for a custom packaging business, featuring product catalogs with product filtering, lead generation, SEO, and a blog.",
     tags: ["Wordpress", "Woocommerce", "ACF", "Elementor", "Hostinger"],
   },
   {
     id: 2,
     client_name: "This Website",
+    link:"htps://www.tahalistens.github.io",
     service_provided: "High Performance SPA",
     service_short: ["React", "Next.js", "Tailwind CSS"],
     logo: "🚀",
@@ -187,9 +190,11 @@ export const Portfolio = () => {
             >
               ×
             </button>
+             
             <div className="text-5xl mb-4">{selectedProject.logo}</div>
-            <h2 className="text-2xl font-bold mb-2 text-black">{selectedProject.name}</h2>
-            <p className="text-blue-600  font-semibold mb-4">{selectedProject.client}</p>
+            <h2 className="text-2xl font-bold mb-2 text-black">{selectedProject.client_name}</h2>
+            <a className= "text-xl underline text-black " href={`${selectedProject.link}`}>{selectedProject.link}</a>
+            <p className="text-blue-600  font-semibold mb-4">{selectedProject.service_provided}</p>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{selectedProject.fullDescription}</p>
             
             {/* Modal Bubbles - High Contrast */}
